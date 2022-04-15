@@ -16,8 +16,8 @@
     <aop:config>
         <aop:pointcut id="allPointcut" expression="execution(* com.mirim.biz..*Impl.*(..))"/>
         <aop:pointcut id="getPointcut" expression="execution(* com.mirim.biz..*Impl.get*(..))"/>
-        <aop:aspect ref="before">
-            <aop:before method="beforeLog" pointcut-ref="allPointcut"/>
+        <aop:aspect ref="around">
+            <aop:around method="aroundLog" pointcut-ref="allPointcut"/>
         </aop:aspect>
     </aop:config>
 
