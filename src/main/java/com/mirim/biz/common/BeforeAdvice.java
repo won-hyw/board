@@ -6,14 +6,11 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
 
-@Service
-@Aspect
+@Service // 객체 생성
+@Aspect // Aspect = Pointcut + Advice
 public class BeforeAdvice {
 
-    @Pointcut("execution(* com.mirim.biz..*Impl.*(..))")
-    public void allPointcut() {}
-
-    @Before("allPointcut()")
+    @Before("PointcutCommon.allPointcut()")
     public void beforeLog(JoinPoint jp) {
         String method = jp.getSignature().getName();
         Object[] args = jp.getArgs();

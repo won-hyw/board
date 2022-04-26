@@ -7,7 +7,6 @@ import java.util.List;
 
 public class BoardServiceClient {
 
-
     public static void main(String[] args) {
         //1. Spring 컨테이너를 구동한다.
         AbstractApplicationContext container = new GenericXmlApplicationContext("applicationContext.xml");
@@ -30,4 +29,5 @@ public class BoardServiceClient {
         // 5. Spring컨테이너 종료
         container.close();
     }
+
 }

@@ -6,14 +6,11 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service // 객체 생성
 @Aspect
 public class AfterThrowingAdvice {
 
-    @Pointcut("execution(* com.mirim.biz..*Impl.*(..))")
-    public void allPointcut() {}
-
-    @AfterThrowing(pointcut = "allPointcut()", throwing = "exceptObj")
+    @AfterThrowing(pointcut = "PointcutCommon.allPointcut()", throwing = "exceptObj")
     public void exceptionLog(JoinPoint jp, Exception exceptObj) {
         String method = jp.getSignature().getName();
         System.out.println("[예외처리] " + method + "() 메소드 수행 중 발생된 예외 메시지 : " + exceptObj.toString());

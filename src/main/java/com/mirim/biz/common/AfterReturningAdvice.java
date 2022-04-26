@@ -11,10 +11,7 @@ import org.springframework.stereotype.Service;
 @Aspect
 public class AfterReturningAdvice {
 
-    @Pointcut("execution(* com.mirim.biz..*Impl.get*(..))")
-    public void getPointcut() {}
-
-    @AfterReturning(pointcut = "getPointcut()", returning = "returnObj")
+    @AfterReturning(pointcut = "PointcutCommon.getPointcut()", returning = "returnObj")
     public void afterReturningLog(JoinPoint jp, Object returnObj) {
         String method = jp.getSignature().getName();
 
